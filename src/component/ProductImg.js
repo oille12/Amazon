@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 
-const PHOTOS = ["/images/product-1.jpeg","/images/product-2.jpeg","/images/product-3.jpeg"];
+const PHOTOS = [
+    "/images/product-1.jpeg",
+    "/images/product-2.jpeg",
+    "/images/product-3.jpeg"
+];
 
 export default function ProductImg() {
     const [index, setIndex] = useState(0);

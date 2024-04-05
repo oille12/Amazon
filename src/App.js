@@ -11,19 +11,31 @@ const DATA = {
 }
 
 export default function App(){
+  // 장바구니 버튼 비활성화 관리
   const [addCart,addedCart] = useState(localStorage.getItem("cart"));
+  // 탑 버튼 활성화 관리
   const [active, setActive] = useState(false);
 
+  // 장바구니 추가 처리
   function addToCart(){
     alert("Added");
-    localStorage.setItem("cart", DATA.id);
+    // 버튼 비활성화
     addedCart(DATA.id);
+    // 로컬스토리지 동기화
+    localStorage.setItem("cart", DATA.id);
   };
 
+  // 문서 탑으로 이동 처리
   function gotoTop() {
     window.scroll({top:0, behavior:'smooth'})
+    // 또는 
+    // document.documentElement.scrollTop = 0;
   }
   useEffect(() => {
+    // 문서 타이틀 업데이트
+    document.title = `Amazon - ${DATA.name}`;
+    
+    // 스크롤 이벤트 처리
     const handleScroll = () => {
       if (window.scrollY > 1000) {
         setActive(true)
